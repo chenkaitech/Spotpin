@@ -1,5 +1,4 @@
-# Generate a bilingual landing page for SpotPin based on the HueView structure
-html = r"""<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -53,7 +52,7 @@ nav{display:flex;justify-content:space-between;align-items:center;gap:16px}
 <div class="container">
   <nav>
     <div class="brand">
-      <img class="icon" src="icon.png" alt="SpotPin icon">
+      <img class="icon" src="app_icon_128x128.png" alt="SpotPin icon">
       <span>SpotPin · 拍照标记车位</span>
     </div>
     <div style="display:flex;gap:16px;align-items:center">
@@ -86,9 +85,7 @@ nav{display:flex;justify-content:space-between;align-items:center;gap:16px}
         <span class="pill" data-en="Apple Watch" data-zh="Apple Watch 支持"></span>
       </div>
     </div>
-    <div class="card">
-      <img class="sample" src="spot_screen1.png" data-en-src="spot_screen1.png" data-zh-src="spot_screen1_zh.png" alt="App screenshot 1">
-    </div>
+   
   </section>
 
   <section id="features" class="section">
@@ -118,14 +115,14 @@ nav{display:flex;justify-content:space-between;align-items:center;gap:16px}
       <div class="card">
         <div class="tag" data-en="Find Car" data-zh="寻车"></div>
         <h3 style="margin:12px 0" data-en="One tap to find" data-zh="一键寻车"></h3>
-        <p class="text2" data-en="Thumbnail, spot code, address; jump to Apple Maps for walking route."
-           data-zh="缩略图 + 车位号 + 地址，一键跳转 Apple 地图步行路线。"></p>
+        <p class="text2" data-en="Thumbnail, spot code, address; jump to Maps for walking route."
+           data-zh="缩略图 + 车位号 + 地址，一键跳转地图步行路线。"></p>
       </div>
       <div class="card">
         <div class="tag" data-en="Safety" data-zh="防误触"></div>
         <h3 style="margin:12px 0" data-en="Slide‑to‑end + Undo" data-zh="滑动结束 + 撤销"></h3>
-        <p class="text2" data-en="Stops only when you slide; 10‑second undo after finishing."
-           data-zh="滑动结束才会停止计时，结束后 10 秒内可撤销。"></p>
+        <p class="text2" data-en="Stops only when you slide."
+           data-zh="滑动结束才会停止计时。"></p>
       </div>
       <div class="card">
         <div class="tag" data-en="Reminders" data-zh="提醒"></div>
@@ -136,12 +133,7 @@ nav{display:flex;justify-content:space-between;align-items:center;gap:16px}
     </div>
 
     <div class="grid-3" style="margin-top:24px">
-      <div class="card">
-        <div class="tag" data-en="Watch" data-zh="手表"></div>
-        <h3 style="margin:12px 0" data-en="Apple Watch" data-zh="Apple Watch 支持"></h3>
-        <p class="text2" data-en="Complication shows time & status. Taptic when reaching thresholds."
-           data-zh="表盘小组件显示计时与状态，阈值到达时 Taptic 震动。"></p>
-      </div>
+     
       <div class="card">
         <div class="tag" data-en="Offline" data-zh="离线"></div>
         <h3 style="margin:12px 0" data-en="Works underground" data-zh="地库可用"></h3>
@@ -186,7 +178,7 @@ nav{display:flex;justify-content:space-between;align-items:center;gap:16px}
         <h2 id="support" data-en="Support" data-zh="支持"></h2>
         <p class="text2" data-en="Have questions or feedback? Email us or open an issue on GitHub."
            data-zh="有问题或建议？欢迎邮件联系，或在 GitHub 提交 Issue。"></p>
-        <p><a href="mailto:support@example.com">support@example.com</a></p>
+        <p><a href="mailto:support@example.com">freesysck@outlook.com</a></p>
         <p>
           <a href="https://github.com/chenkaitech/SpotPin" target="_blank" rel="noopener"
              data-en="GitHub Repository" data-zh="GitHub 仓库"></a><br>
@@ -236,8 +228,4 @@ setLang(saved);
 </script>
 </body>
 </html>
-"""
-out = "/mnt/data/spotpin_site.html"
-with open(out,"w",encoding="utf-8") as f:
-    f.write(html)
-out
+
