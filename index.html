@@ -1,0 +1,243 @@
+# Generate a bilingual landing page for SpotPin based on the HueView structure
+html = r"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SpotPin · 拍照标记车位</title>
+<meta name="description" content="SpotPin — One‑tap timer, snap your spot, and find your car in seconds. 拍照标记车位 — 一键计时、拍照保存车位、回来秒找到。">
+<link rel="icon" href="favicon.ico">
+<style>
+:root{
+  --bg:#0F1219; --surface:#151926; --text:#F0F3FA; --text2:#BAC2D6;
+  --blue:#7DA6FF; --green:#2ECC71; --gold:#FFD54F; --warn:#FF7043;
+  --divider:rgba(255,255,255,.12);
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Helvetica, Arial, Noto Sans, "PingFang SC","Hiragino Sans GB","Microsoft Yahei",sans-serif;}
+a{color:var(--blue);text-decoration:none}
+.container{max-width:1100px;margin:0 auto;padding:40px 24px}
+nav{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700}
+.brand img.icon{width:40px;height:40px;border-radius:12px}
+.nav-links{display:flex;gap:18px;align-items:center}
+.nav-links a{color:var(--text2);font-weight:600}
+.nav-links a:hover{color:var(--text)}
+.lang-switch{display:flex;gap:8px;background:var(--surface);border-radius:12px;padding:6px}
+.lang-switch button{all:unset;cursor:pointer;padding:6px 14px;border-radius:10px;color:var(--text2);font-weight:600}
+.lang-switch button.active{background:var(--blue);color:#0B1220}
+.hero{display:grid;grid-template-columns:1.1fr 0.9fr;gap:36px;align-items:center;margin-top:40px}
+.hero h1{font-size:40px;line-height:1.1;margin:0 0 16px}
+.hero p.lead{color:var(--text2);font-size:18px;margin:0 0 24px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.button{display:inline-flex;align-items:center;gap:10px;background:var(--blue);color:#0B1220;font-weight:700;
+  padding:14px 22px;border-radius:14px;box-shadow:0 10px 30px rgba(125,166,255,.25);}
+.button.ghost{background:transparent;color:var(--text);border:1px solid var(--divider)}
+.card{background:var(--surface);border-radius:20px;padding:24px;box-shadow:0 10px 30px rgba(0,0,0,.25);}
+.section{margin-top:80px}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}
+.tag{display:inline-block;padding:6px 10px;border-radius:8px;font-size:13px;background:rgba(125,166,255,.16);color:var(--blue)}
+.sample{width:100%;border-radius:18px;box-shadow:0 12px 40px rgba(0,0,0,.35);background:#0f1118;aspect-ratio:9/19.5;object-fit:cover}
+.footer{margin-top:80px;color:var(--text2);font-size:14px;border-top:1px solid var(--divider);padding:32px 0}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.gallery img{width:100%;border-radius:18px;box-shadow:0 12px 40px rgba(0,0,0,.35);background:#0f1118;aspect-ratio:9/19.5;object-fit:cover}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:14px;background:#0f1118;border:1px solid var(--divider);color:var(--text2);font-size:14px}
+.iconrow{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+.pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--divider);color:var(--text2);padding:10px 14px;border-radius:14px}
+@media (max-width:960px){ .hero{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+<div class="container">
+  <nav>
+    <div class="brand">
+      <img class="icon" src="icon.png" alt="SpotPin icon">
+      <span>SpotPin · 拍照标记车位</span>
+    </div>
+    <div style="display:flex;gap:16px;align-items:center">
+      <div class="nav-links">
+        <a href="#features" data-en="Features" data-zh="功能"></a>
+        <a href="#screens" data-en="Screenshots" data-zh="界面"></a>
+        <a href="#privacy" data-en="Privacy" data-zh="隐私"></a>
+        <a href="#support" data-en="Support" data-zh="支持"></a>
+      </div>
+      <div class="lang-switch">
+        <button id="btn-en" class="active">English</button>
+        <button id="btn-zh">中文</button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div>
+      <h1 data-en="One‑tap timer. Snap your spot. Find it in seconds."
+          data-zh="一键计时 · 拍照标记车位 · 回来秒找到"></h1>
+      <p class="lead" data-en="A minimalist parking tool for quick stops. Works offline in garages, with slide‑to‑end safety and Apple Watch haptics."
+         data-zh="为短停高频场景而生的极简工具。地库无网也能用，支持滑动结束防误触与 Apple Watch 震动提醒。"></p>
+      <div class="cta">
+        <a href="#" class="button" data-en="Coming soon" data-zh="即将上架"></a>
+        <a href="#features" class="button ghost" data-en="Learn more" data-zh="了解功能"></a>
+      </div>
+      <div class="iconrow">
+        <span class="pill" data-en="Offline" data-zh="离线可用"></span>
+        <span class="pill" data-en="OCR spot code" data-zh="OCR 识别车位号"></span>
+        <span class="pill" data-en="Apple Watch" data-zh="Apple Watch 支持"></span>
+      </div>
+    </div>
+    <div class="card">
+      <img class="sample" src="spot_screen1.png" data-en-src="spot_screen1.png" data-zh-src="spot_screen1_zh.png" alt="App screenshot 1">
+    </div>
+  </section>
+
+  <section id="features" class="section">
+    <h2 data-en="Core features" data-zh="核心功能"></h2>
+    <div class="grid-3" style="margin-top:24px">
+      <div class="card">
+        <div class="tag" data-en="Timer" data-zh="计时"></div>
+        <h3 style="margin:12px 0" data-en="Press & hold to start" data-zh="长按开始计时"></h3>
+        <p class="text2" data-en="Start in 0.8s after pressing. Elapsed time is always visible."
+           data-zh="长按 0.8 秒即开始计时，已用时随时可见。"></p>
+      </div>
+      <div class="card">
+        <div class="tag" data-en="Spot card" data-zh="车位卡片"></div>
+        <h3 style="margin:12px 0" data-en="Save with photos" data-zh="拍照保存车位"></h3>
+        <p class="text2" data-en="OCR detects level / zone / bay number. Manual edit & notes supported."
+           data-zh="OCR 自动识别 楼层/区域/车位号，也可手动编辑与备注。"></p>
+      </div>
+      <div class="card">
+        <div class="tag" data-en="Two photos" data-zh="双照片"></div>
+        <h3 style="margin:12px 0" data-en="Pillar + wide shot" data-zh="车位牌 + 实景"></h3>
+        <p class="text2" data-en="Store the pillar code and a wide shot of your car to regain orientation fast."
+           data-zh="同时保存车位牌与车辆实景，更容易在回程中找到方向感。"></p>
+      </div>
+    </div>
+
+    <div class="grid-3" style="margin-top:24px">
+      <div class="card">
+        <div class="tag" data-en="Find Car" data-zh="寻车"></div>
+        <h3 style="margin:12px 0" data-en="One tap to find" data-zh="一键寻车"></h3>
+        <p class="text2" data-en="Thumbnail, spot code, address; jump to Apple Maps for walking route."
+           data-zh="缩略图 + 车位号 + 地址，一键跳转 Apple 地图步行路线。"></p>
+      </div>
+      <div class="card">
+        <div class="tag" data-en="Safety" data-zh="防误触"></div>
+        <h3 style="margin:12px 0" data-en="Slide‑to‑end + Undo" data-zh="滑动结束 + 撤销"></h3>
+        <p class="text2" data-en="Stops only when you slide; 10‑second undo after finishing."
+           data-zh="滑动结束才会停止计时，结束后 10 秒内可撤销。"></p>
+      </div>
+      <div class="card">
+        <div class="tag" data-en="Reminders" data-zh="提醒"></div>
+        <h3 style="margin:12px 0" data-en="Local thresholds" data-zh="本地提醒阈值"></h3>
+        <p class="text2" data-en="30/60 minutes or custom thresholds with haptic alerts."
+           data-zh="可设 30/60 分钟或自定义阈值，震动提醒。"></p>
+      </div>
+    </div>
+
+    <div class="grid-3" style="margin-top:24px">
+      <div class="card">
+        <div class="tag" data-en="Watch" data-zh="手表"></div>
+        <h3 style="margin:12px 0" data-en="Apple Watch" data-zh="Apple Watch 支持"></h3>
+        <p class="text2" data-en="Complication shows time & status. Taptic when reaching thresholds."
+           data-zh="表盘小组件显示计时与状态，阈值到达时 Taptic 震动。"></p>
+      </div>
+      <div class="card">
+        <div class="tag" data-en="Offline" data-zh="离线"></div>
+        <h3 style="margin:12px 0" data-en="Works underground" data-zh="地库可用"></h3>
+        <p class="text2" data-en="View photos and notes offline; avoid GPS drift caused by weak signal."
+           data-zh="即使在地库无网也能看图找车，避免弱信号导致的定位漂移。"></p>
+      </div>
+      <div class="card">
+        <div class="tag" data-en="Privacy" data-zh="隐私"></div>
+        <h3 style="margin:12px 0" data-en="Privacy‑first" data-zh="隐私优先"></h3>
+        <p class="text2" data-en="Photos and location stay on device. No cloud required."
+           data-zh="照片与位置信息默认仅存本机，不开云端也能完整使用。"></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="screens" class="section">
+    <h2 data-en="Screenshots" data-zh="界面预览"></h2>
+    <p class="lead" data-en="Replace the four images below with your actual screenshots."
+       data-zh="将下方四张占位图替换为你的真实截图。"></p>
+    <div class="gallery" style="margin-top:16px">
+      <img src="spot_screen1.png" data-en-src="spot_screen1.png" data-zh-src="spot_screen1_zh.png" alt="s1">
+      <img src="spot_screen2.png" data-en-src="spot_screen2.png" data-zh-src="spot_screen2_zh.png" alt="s2">
+      <img src="spot_screen3.png" data-en-src="spot_screen3.png" data-zh-src="spot_screen3_zh.png" alt="s3">
+      <img src="spot_screen4.png" data-en-src="spot_screen4.png" data-zh-src="spot_screen4_zh.png" alt="s4">
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="grid-2">
+      <div class="card">
+        <h2 id="privacy" data-en="Privacy" data-zh="隐私"></h2>
+        <p class="text2" data-en="SpotPin is privacy‑first. Your data stays on your device by default. No account required."
+           data-zh="SpotPin 以隐私为先。数据默认仅保存在你的设备上，无需注册账号。"></p>
+        <ul style="margin:12px 0 0 18px; color: var(--text2); line-height:1.7">
+          <li data-en="Camera and location permissions are requested only when you choose to use them."
+              data-zh="仅在你使用相关功能时，才会请求相机与定位权限。"></li>
+          <li data-en="We do not track your device identifiers or behavior data."
+              data-zh="我们不会追踪你的设备标识或行为数据。"></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2 id="support" data-en="Support" data-zh="支持"></h2>
+        <p class="text2" data-en="Have questions or feedback? Email us or open an issue on GitHub."
+           data-zh="有问题或建议？欢迎邮件联系，或在 GitHub 提交 Issue。"></p>
+        <p><a href="mailto:support@example.com">support@example.com</a></p>
+        <p>
+          <a href="https://github.com/chenkaitech/SpotPin" target="_blank" rel="noopener"
+             data-en="GitHub Repository" data-zh="GitHub 仓库"></a><br>
+          <a href="https://github.com/chenkaitech/SpotPin/issues" target="_blank" rel="noopener"
+             data-en="Report an issue on GitHub" data-zh="在 GitHub 提交问题"></a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="grid-2">
+      <div>
+        <strong>SpotPin · 拍照标记车位</strong><br>
+        <span data-en="© 2025 SpotPin Team. All rights reserved."
+              data-zh="© 2025 SpotPin 团队。保留所有权利。"></span>
+      </div>
+      <div style="text-align:right">
+        <a href="#privacy" data-en="Privacy Policy" data-zh="隐私政策"></a> ·
+        <a href="#support" data-en="Support" data-zh="支持"></a>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script>
+function swapLangImages(lang){
+  document.querySelectorAll("img[data-en-src]").forEach(img=>{
+    const src = img.getAttribute(lang==="zh" ? "data-zh-src" : "data-en-src");
+    if(src) img.setAttribute("src", src);
+  });
+}
+function setLang(lang){
+  document.querySelectorAll("[data-en]").forEach(el=>{
+    const text = el.getAttribute(lang === "zh" ? "data-zh" : "data-en");
+    if(text!==null){ el.textContent = text; }
+  });
+  document.getElementById("btn-en").classList.toggle("active", lang==="en");
+  document.getElementById("btn-zh").classList.toggle("active", lang==="zh");
+  localStorage.setItem("spotpin-lang", lang);
+  swapLangImages(lang);
+}
+document.getElementById("btn-en").onclick=()=>setLang("en");
+document.getElementById("btn-zh").onclick=()=>setLang("zh");
+const saved = localStorage.getItem("spotpin-lang") || (navigator.language.startsWith("zh")?"zh":"en");
+setLang(saved);
+</script>
+</body>
+</html>
+"""
+out = "/mnt/data/spotpin_site.html"
+with open(out,"w",encoding="utf-8") as f:
+    f.write(html)
+out
